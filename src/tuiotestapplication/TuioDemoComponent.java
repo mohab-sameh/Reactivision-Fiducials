@@ -210,7 +210,8 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
 				for (int i=0;i<path.size();i++) {
 					TuioPoint next_point = path.get(i);
 					g2.drawLine(current_point.getScreenX(w), current_point.getScreenY(h), next_point.getScreenX(w), next_point.getScreenY(h));
-					current_point = next_point;
+					
+                                        current_point = next_point;
 				}
 			}
 			
