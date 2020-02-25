@@ -28,6 +28,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import TUIO.*;
+import java.awt.image.ImageObserver;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 public class TuioDemoObject extends TuioObject {
 
@@ -77,7 +80,54 @@ public class TuioDemoObject extends TuioObject {
 		g.fill(s);
 		g.setPaint(Color.red);
 		g.drawString("ID= "+symbol_id+"",Xpos-10,Ypos);
+                
+                //String path = "img.png";
+                String path = getCardImage(symbol_id);
+                File imgFile = new File(path);
+                
+                int newX = (int) Xpos;
+                int newY = (int) Ypos;
+                try{
+                        Image img = ImageIO.read(imgFile);
+                        //g.drawImage(img, newX, newY, null);
+                        g.drawImage(img, newX - (img.getWidth(null)/4), newY, img.getWidth(null)/2, img.getHeight(null)/2, null);
+                    }catch(Exception ex){
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
+
+
 	}
+        
+        public String getCardImage(int id)
+        {
+            if(id == 5) return "q1.png";
+            if(id == 6) return "q2.png";
+            
+            if(id == 7) return "a1.png";
+            if(id == 8) return "a2.png";
+            if(id == 11) return "a3.png";
+            
+            return "q1";
+        }
+        
+        public void drawImage(int x, int y, String path)
+        {
+            JPanel pnl = new JPanel(){
+                @Override
+                public void paintComponent(Graphics g){
+                    Graphics2D g2 = (Graphics2D)g;
+                    File imgFile = new File(path);
+                    try{
+                        Image img = ImageIO.read(imgFile);
+                        g2.drawImage(img, x, y, this);
+
+                    }catch(Exception ex){
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
+                }
+            };
+            
+        }
 
 	public void update(TuioObject tobj) {
 		
