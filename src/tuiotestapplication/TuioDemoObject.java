@@ -113,7 +113,7 @@ public class TuioDemoObject extends TuioObject {
             if(id == 8) return "a2.png";
             if(id == 11) return "a3.png";
             
-            return "q1";
+            return "a1.png";
         }
         
         public void drawImage(int x, int y, String path)
