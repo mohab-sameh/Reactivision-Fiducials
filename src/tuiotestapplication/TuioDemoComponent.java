@@ -88,10 +88,14 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
                                                 {
                                                     //System.out.print("items "+ tobj.getSymbolID() + " and " + tobj2.getSymbolID() +  " are close \n");
                                                     System.out.print("right answer! \n");
+                                                    tobj.state =1;
+                                                    tobj2.state =1;
                                                 }
                                                 else
                                                 {
                                                     System.out.print("wrong answer! \n");
+                                                    tobj.state =2;
+                                                    tobj2.state =2;
                                                 }
                                             }
                                             

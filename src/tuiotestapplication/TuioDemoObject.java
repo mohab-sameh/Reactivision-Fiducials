@@ -37,6 +37,7 @@ public class TuioDemoObject extends TuioObject {
 	private Shape square;
         public int type;
         public int answerID;
+        public int state;
 
 	public TuioDemoObject(TuioObject tobj) {
              
@@ -61,7 +62,7 @@ public class TuioDemoObject extends TuioObject {
                     type = 1;
                     answerID=0;
                 }
-                
+                state = this.state;
 	}
 	
 	public void paint(Graphics2D g, int width, int height) {
@@ -75,8 +76,12 @@ public class TuioDemoObject extends TuioObject {
 		trans.translate(Xpos,Ypos);
 		trans.scale(scale,scale);
 		Shape s = trans.createTransformedShape(square);
-	
-		g.setPaint(Color.green);
+                
+                
+		if(state == 1)g.setPaint(Color.green);
+                if(state == 2)g.setPaint(Color.red);
+                if(state ==0)g.setPaint(Color.blue);
+                
 		g.fill(s);
 		g.setPaint(Color.red);
 		g.drawString("ID= "+symbol_id+"",Xpos-10,Ypos);
@@ -89,6 +94,7 @@ public class TuioDemoObject extends TuioObject {
                 int newY = (int) Ypos;
                 try{
                         Image img = ImageIO.read(imgFile);
+                        
                         //g.drawImage(img, newX, newY, null);
                         g.drawImage(img, newX - (img.getWidth(null)/4), newY, img.getWidth(null)/2, img.getHeight(null)/2, null);
                     }catch(Exception ex){
