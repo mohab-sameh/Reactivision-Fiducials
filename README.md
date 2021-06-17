@@ -5,4 +5,7 @@ an implementation of reactivision for AR based MCQ answering method for people w
 ## Usage and Demo available on:
  * youtu.be/0K9SaCUeOWU
 
-<img src="https://media.giphy.com/media/FSsxnzHTo1zTDeoPAS/giphy.gif" width="550" height="auto" align="center" />
+
+<p align="center">
+  <img src="https://media.giphy.com/media/FSsxnzHTo1zTDeoPAS/giphy.gif" width="550" height="auto" />
+</p>
